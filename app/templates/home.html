@@ -1,0 +1,349 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+<main id="content" role="main">
+
+
+    <div class="container position-relative">
+        <!-- Categories list and Brand  -->
+        <div class="my-5 my-xl-n10 borders-radius-20 bg-white box-shadow-3">
+            <center>
+                <div class="px-5 py-4 d-flex align-items-center flex-wrap">
+                        <h6 class="mr-2 mb-0 font-size-14 font-weight-bold w-100 w-xl-auto my-2">Categorii</h6>
+                   
+                    <a href="#" class="link-hover__brand mr-4 mx-xl-4 my-2 my-xl-0">
+                        <img class="img-fluid m-auto height-60 width-60 o-f-c" src="{%static 'assets/img/200X60/car.png'%}"
+                            alt="Image Description"  >
+                    </a>
+                    <a href="#" class="link-hover__brand mr-4 mx-xl-4 my-2 my-xl-0">
+                        <img class="img-fluid m-auto height-60 width-60 o-f-c"
+                            src="{%static 'assets/img/200X60/carr.png'%}"
+                            alt="Image Description" >
+                    </a>
+                    <a href="#" class="link-hover__brand mr-4 mx-xl-4 my-2 my-xl-0">
+                        <img class="img-fluid m-auto height-60 width-60 o-f-c"
+                            src="{%static 'assets/img/200X60/spr.png'%}"
+                            alt="Image Description" >
+                    </a>
+                    <a href="#" class="link-hover__brand mr-4 mx-xl-4 my-2 my-xl-0">
+                        <img class="img-fluid m-auto height-60 width-60 o-f-c"
+                            src="{%static 'assets/img/200X60/spra.png'%}"
+                            alt="Image Description" >
+                    </a>
+                    <a href="#" class="link-hover__brand mr-4 mx-xl-4 my-2 my-xl-0">
+                        <img class="img-fluid m-auto height-60 width-60 o-f-c"
+                            src="{%static 'assets/img/200X60/spray.png'%}"
+                            alt="Image Description" >
+                    </a>
+                    <a href="#" class="link-hover__brand mr-4 mx-xl-4 my-2 my-xl-0">
+                        <img class="img-fluid m-auto height-60 width-60 o-f-c"
+                            src="{%static 'assets/img/200X60/dez.png'%}"
+                            alt="Image Description" >
+                    </a>
+                    
+                </div>
+            </center>
+        </div>
+    </div>
+
+    <!-- Week Deals limited -->
+
+            
+
+<div class="bg-gray-7 mb-6 py-7 pt-xl-15 pb-xl-7">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-4 col-lg-3 mb-6 mb-md-0">
+                <h1 class="font-size-42 text-lh-38 mb-3 font-weight-light" data-scs-animation-in="fadeInUp">
+                    CELE MAI POPULARE <span class="d-block font-size-42">PRODUSE</span>
+                </h1>
+                <div class="mb-6" data-scs-animation-in="fadeInUp" data-scs-animation-delay="200">
+
+                </div>
+                <a href=" {%url 'store'%}"
+                    class="btn btn-primary transition-3d-hover rounded-lg font-weight-normal py-2 px-md-7 px-3 font-size-16"
+                    data-scs-animation-in="fadeInUp" data-scs-animation-delay="300">
+                    CUMPARA
+                </a>
+            </div>
+            <div class="col-md-8 col-lg-9">
+                <div class="">
+                    <div class="js-slick-carousel u-slick position-static overflow-hidden u-slick-overflow-visble pb-5 pt-2 px-1"
+                        data-pagi-classes="text-center d-xl-none right-0 bottom-1 left-0 u-slick__pagination u-slick__pagination--long mb-0 z-index-n1 mt-3 pt-1"
+                        data-arrows-classes="d-none d-xl-inline-block u-slick__arrow-normal u-slick__arrow-centered--y font-size-25"
+                        data-arrow-left-classes="fas fa-chevron-left left-n16 u-slick__arrow-classic-inner--left z-index-9"
+                        data-arrow-right-classes="fas fa-chevron-right right-n16 u-slick__arrow-classic-inner--right"
+                        data-slides-show="5" data-slides-scroll="1" data-responsive='[{
+                                      "breakpoint": 1400,
+                                      "settings": {
+                                        "slidesToShow": 4
+                                      }
+                                    }, {
+                                        "breakpoint": 1200,
+                                        "settings": {
+                                          "slidesToShow": 3
+                                        }
+                                    }, {
+                                      "breakpoint": 992,
+                                      "settings": {
+                                        "slidesToShow": 2
+                                      }
+                                    }, {
+                                      "breakpoint": 768,
+                                      "settings": {
+                                        "slidesToShow": 2
+                                      }
+                                    }, {
+                                      "breakpoint": 554,
+                                      "settings": {
+                                        "slidesToShow": 2
+                                      }
+                                    }]'>
+                                    {% for product in products %}
+                        <div class="js-slide products-group">
+                            <div class="product-item mx-1 remove-divider">
+                                <div class="product-item__outer h-100">
+                                    <div class="product-item__inner bg-white px-wd-4 p-2 p-md-3">
+                                        <div class="product-item__body pb-xl-2">
+                                            <div class="mb-2"><a
+                                                    href="#"
+                                                    class="font-size-12 text-gray-5">{{product.category}}</a></div>
+                                            <h5 class="mb-1 product-item__title"><a
+                                                    href="{%url 'product-detail' product.id%}"
+                                                    class="text-blue font-weight-bold">{{product.product_name}}</a></h5>
+                                            <div class="mb-2">
+                                                <a href="{%url 'product-detail' product.id%}"
+                                                    class="d-block text-center"><img class="img-fluid"
+                                                        src="{{product.image.url}}"
+                                                        alt="Image Description"></a>
+                                            </div>
+                                            <div class="flex-center-between mb-1">
+                                                <div class="prodcut-price">
+                                                    <div class="text-gray-100">Lei {{product.price}}</div>
+                                                </div>
+                                                <div class="d-none d-xl-block prodcut-add-cart">
+                                                    <a href="{%url 'product-detail' product.id%}"
+                                                        class="btn-add-cart btn-primary transition-3d-hover"><i
+                                                            class="ec ec-add-to-cart"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="product-item__footer">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                       
+                        
+                       
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner -->
+    <div class="container mb-6">
+        <div class="row">
+            <div class="col-md-6 mb-4 mb-xl-0">
+                <a href="../shop/shop.html" class="d-block">
+                    <img class="img-fluid" src="{% static 'assets/img/690X150/v1.jpg'%}" alt="Image Description">
+                </a>
+            </div>
+            <div class="col-md-6 mb-4 mb-xl-0">
+                <a href="../shop/shop.html" class="d-block">
+                    <img class="img-fluid" src="{% static 'assets/img/690X150/v2.jpg'%}" alt="Image Description">
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- End Banner -->
+<di
+    <!-- Deals of The Day -->
+ <div class="container mb-6 position-relative">
+     <div
+         class="d-flex justify-content-between border-bottom border-color-1 flex-lg-nowrap flex-wrap border-sm-top-0 border-sm-bottom-0">
+         <h3 class="section-title mb-2 mb-md-0 pb-2 font-size-22">DECOR</h3>
+         <a class="d-block text-gray-16" href="../shop/shop.html">Mai multe produse <i
+                 class="ec ec-arrow-right-categproes"></i></a>
+     </div>
+     <div class="js-slick-carousel position-static u-slick overflow-hidden u-slick-overflow-visble pb-5 pt-2 px-1"
+         data-pagi-classes="text-center right-0 bottom-1 left-0 u-slick__pagination u-slick__pagination--long mb-0 z-index-n1 mt-3 pt-1"
+         data-arrows-classes="d-none d-xl-inline-block u-slick__arrow-normal u-slick__arrow-centered--y font-size-25"
+         data-arrow-left-classes="fas fa-chevron-left left-n16 u-slick__arrow-classic-inner--left z-index-9"
+         data-arrow-right-classes="fas fa-chevron-right right-n16 u-slick__arrow-classic-inner--right"
+         data-slides-show="7" data-slides-scroll="1" data-responsive='[{
+                      "breakpoint": 1500,
+                      "settings": {
+                        "slidesToShow": 6
+                      }
+                    }, {
+                        "breakpoint": 1200,
+                        "settings": {
+                          "slidesToShow": 3
+                        }
+                    }, {
+                      "breakpoint": 992,
+                      "settings": {
+                        "slidesToShow": 3
+                      }
+                    }, {
+                      "breakpoint": 768,
+                      "settings": {
+                        "slidesToShow": 2
+                      }
+                    }, {
+                      "breakpoint": 554,
+                      "settings": {
+                        "slidesToShow": 2
+                      }
+                    }]'>
+
+      
+         {% for product in products  %}
+
+                
+         <div class="js-slide products-group">
+             <div class="product-item mx-1 remove-divider">
+                 <div class="product-item__outer h-100">
+                     <div class="product-item__inner bg-white px-wd-4 p-2 p-md-3">
+                         <div class="product-item__body pb-xl-2">
+                             <div class="mb-2"><a href="#" class="font-size-12 text-gray-5">{{product.category}}</a>
+                             </div>
+                             <h5 class="mb-1 product-item__title"><a href="{%url 'product-detail' product.id%}"
+                                     class="text-blue font-weight-bold">{{product.product_name}}</a>
+                             </h5>
+                             <div class="mb-2">
+                                 <a href="{%url 'product-detail' product.id%}" class="d-block text-center"><img
+                                         class="img-fluid" src="{{product.image.url}}" alt="Image Description"></a>
+                             </div>
+                             <div class="flex-center-between mb-1">
+                                 <div class="prodcut-price">
+                                     <div class="text-gray-100">Lei {{product.price}}</div>
+                                 </div>
+                                 <div class="d-none d-xl-block prodcut-add-cart">
+                                     <a href="{%url 'product-detail' product.id%}"
+                                         class="btn-add-cart btn-primary transition-3d-hover"><i
+                                             class="ec ec-add-to-cart"></i></a>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="product-item__footer">
+
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+
+         
+         {% endfor %}
+</div>
+</div>
+<br><br><br>
+<div class="container mb-6">
+    <div class="row">
+        <div class="col-md-6 mb-4 mb-xl-0">
+            <a href="../shop/shop.html" class="d-block">
+                <img class="img-fluid" src="{% static 'assets/img/690X150/122.png'%}" alt="Image Description">
+            </a>
+        </div>
+        <div class="col-md-6 mb-4 mb-xl-0">
+            <a href="../shop/shop.html" class="d-block">
+                <img class="img-fluid" src="{% static 'assets/img/690X150/133.png'%}" alt="Image Description">
+            </a>
+        </div>
+    </div>
+</div>
+
+ <!-- Laptops & Computers -->
+ 
+ <div class="container mb-6 position-relative">
+ <div
+  class="d-flex justify-content-between border-bottom border-color-1 flex-lg-nowrap flex-wrap border-sm-top-0 border-sm-bottom-0">
+     <h3 class="section-title mb-2 mb-md-0 pb-2 font-size-22">AUTOMOBILE</h3>
+         <a class="d-block text-gray-16" href="../shop/shop.html">Mai multe produse <i
+                                    class="ec ec-arrow-right-categproes"></i></a>
+  </div>
+                        <div class="js-slick-carousel position-static u-slick overflow-hidden u-slick-overflow-visble pb-5 pt-2 px-1"
+                            data-pagi-classes="text-center right-0 bottom-1 left-0 u-slick__pagination u-slick__pagination--long mb-0 z-index-n1 mt-3 pt-1"
+                            data-arrows-classes="d-none d-xl-inline-block u-slick__arrow-normal u-slick__arrow-centered--y font-size-25"
+                            data-arrow-left-classes="fas fa-chevron-left left-n16 u-slick__arrow-classic-inner--left z-index-9"
+                            data-arrow-right-classes="fas fa-chevron-right right-n16 u-slick__arrow-classic-inner--right"
+                            data-slides-show="7" data-slides-scroll="1" data-responsive='[{
+                      "breakpoint": 1500,
+                      "settings": {
+                        "slidesToShow": 6
+                      }
+                    }, {
+                        "breakpoint": 1200,
+                        "settings": {
+                          "slidesToShow": 3
+                        }
+                    }, {
+                      "breakpoint": 992,
+                      "settings": {
+                        "slidesToShow": 3
+                      }
+                    }, {
+                      "breakpoint": 768,
+                      "settings": {
+                        "slidesToShow": 2
+                      }
+                    }, {
+                      "breakpoint": 554,
+                      "settings": {
+                        "slidesToShow": 2
+                      }
+                    }]'>
+                        {% for product in products %}
+
+
+                        <div class="js-slide products-group">
+                            <div class="product-item mx-1 remove-divider">
+                                <div class="product-item__outer h-100">
+                                    <div class="product-item__inner bg-white px-wd-4 p-2 p-md-3">
+                                        <div class="product-item__body pb-xl-2">
+                                            <div class="mb-2"><a href="#"
+                                                    class="font-size-12 text-gray-5">{{product.category}}</a></div>
+                                            <h5 class="mb-1 product-item__title"><a
+                                                    href="{%url 'product-detail' product.id%}"
+                                                    class="text-blue font-weight-bold">{{product.product_name}}</a>
+                                            </h5>
+                                            <div class="mb-2">
+                                                <a href="{%url 'product-detail' product.id%}"
+                                                    class="d-block text-center"><img class="img-fluid"
+                                                        src="{{product.image.url}}" alt="Image Description"></a>
+                                            </div>
+                                            <div class="flex-center-between mb-1">
+                                                <div class="prodcut-price">
+                                                    <div class="text-gray-100">Lei {{product.price}}</div>
+                                                </div>
+                                                <div class="d-none d-xl-block prodcut-add-cart">
+                                                    <a href="{%url 'product-detail' product.id%}"
+                                                        class="btn-add-cart btn-primary transition-3d-hover"><i
+                                                            class="ec ec-add-to-cart"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="product-item__footer">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        {% endfor %}
+                  
+</main>
+
+
+{% endblock content %}

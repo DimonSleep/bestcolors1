@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<br>
+<br>
+<br>
+ <!-- Single Product Body -->
+ <div class="mb-xl-14 mb-6 " style="background-color: white;">
+ 	<div class="row">
+ 		<div class="col-md-5 mb-4 mb-md-0">
+ 			<div id="sliderSyncingNav" class="js-slick-carousel u-slick mb-2" data-infinite="true"
+ 				data-arrows-classes="d-none d-lg-inline-block u-slick__arrow-classic u-slick__arrow-centered--y rounded-circle"
+ 				data-nav-for="#sliderSyncingThumb">
+ 				<div class="js-slide">
+ 					<img src="{{object.image.url}}" width="500" height="550" alt="Product image">
+ 				</div>
+ 			</div>
+
+ 			
+ 		</div>
+ 		<div class="col-md-7 mb-md-6 mb-lg-0">
+ 			<div class="mb-2">
+ 				<div class="border-bottom mb-3 pb-md-1 pb-3">
+ 					<a href="#" class="font-size-12 text-gray-5 mb-2 d-inline-block">{{product.category}}</a>
+ 					<h2 class="font-size-25 text-lh-1dot2">{{object.product_name}}</h2>
+ 					<div class="mb-2">
+ 						
+ 					</div>
+ 					
+ 				</div>
+ 				
+ 				<div class="mb-2">
+ 					
+ 				</div>
+ 				<p>{{object.description}}</p>
+ 				
+ 				<div class="mb-4">
+ 					<div class="d-flex align-items-baseline">
+ 						<ins class="font-size-36 text-decoration-none">LEI {{object.price}}</ins>
+ 						
+ 					</div>
+ 				</div>
+ 				
+ 				<div class="d-md-flex align-items-end mb-3">
+ 					
+ 					
+					<form action="{%url 'add-cart' product.id%}" method="GET">
+						<button class="btn btn-primary btn-shadow me-3 mb-3" type="submit"><i class="ci-cart fs-lg me-2"></i>Add to
+							Cart</button>
+					</form>
+ 				</div>
+ 			</div>
+ 		</div>
+ 	</div>
+ </div>
+ <!-- End Single Product Body -->
+
+
+
+
+
+{% endblock content %}
